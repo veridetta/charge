@@ -9,13 +9,17 @@
     var server_key = 'SB-Mid-server-hC8sXhiRSr4EaCCbJZU4V5_B';
     // Set true for production, set false for sandbox
     var is_production = false;
+    
+    if (window.location.pathname === "/charge/index.html") {
+      window.location.replace("/charge");
+    }
 
     var api_url = is_production ?
       'https://app.midtrans.com/snap/v1/transactions' :
       'https://app.sandbox.midtrans.com/snap/v1/transactions';
 
     // Check if method is not HTTP POST, display 404
-    if (window.location.pathname !== '/charge/') {
+    if (window.location.pathname !== '/charge') {
       document.write("Wrong path, make sure it's '/charge' path sekarang "+window.location.pathname);
     } else {
       // Get the HTTP POST body of the request
